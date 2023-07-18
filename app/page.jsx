@@ -1,4 +1,3 @@
-import '../styles/style.scss'
 import Directory from '../components/directory/directory.component'
 
 const categories = [
