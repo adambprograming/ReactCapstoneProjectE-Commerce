@@ -1,9 +1,11 @@
-import SignIn from '../../components/sign-in/sign-in.component'
+import SignIn from "../../components/sign-in/sign-in.component";
 
-const SignInMethod = () => {
+const SignInPage = () => {
   return (
-    <SignIn />
-  )
-}
+    <div>
+      <SignIn />
+    </div>
+  );
+};
 
-export default SignIn
+export default SignInPage;
