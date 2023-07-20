@@ -1,7 +1,8 @@
 // import '../styles/reset.css';
-import '../styles/style.scss'
+import "../styles/style.scss";
 import { Children } from "react";
-import Nav from '../components/nav/nav.component'
+import Nav from "../components/nav/nav.component";
+import { UserProvider } from "../contexts/user.context";
 
 export const metadata = {
   title: "CAPSTONE PROJECT",
@@ -19,14 +20,16 @@ const RootLayout = ({ children }) => {
           rel="stylesheet"
         />
       </head>
-      <body suppressHydrationWarning={true} >
-        <div className="main">
-          <div className="gradient" />
-        </div>
-        <main className="app">
-          <Nav />
-          {children}
-        </main>
+      <body suppressHydrationWarning={true}>
+        <UserProvider>
+          <div className="main">
+            <div className="gradient" />
+          </div>
+          <main className="app">
+            <Nav />
+            {children}
+          </main>
+        </UserProvider>
       </body>
     </html>
   );

@@ -1,8 +1,9 @@
+'use client'
 import "./sign-up-form.styles.scss";
 
+import { useState } from "react";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-import { useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -20,6 +21,7 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   //   deconstruct, aby se mohlo pouzivat rovnou displayName a ne formFields.displayName
   const { displayName, email, password, confirmPassword } = formFields;
+
   // resetuje FormFields
   const resetFormFields = () => {
     setFormFields(defaultFormFields);

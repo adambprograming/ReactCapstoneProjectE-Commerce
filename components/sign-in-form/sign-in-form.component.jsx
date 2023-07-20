@@ -1,5 +1,7 @@
+'use client'
 import "./sign-in-form.styles.scss";
 
+import { useState } from "react";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
@@ -8,7 +10,7 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
-import { useState } from "react";
+
 
 const defaultFormFields = {
   email: "",
@@ -26,11 +28,10 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const user = await signInAuthUserWithEmailAndPassword(
         email,
         password
-      );
-      console.log(response);
+      );      
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -41,7 +42,7 @@ const SignInForm = () => {
           alert("no user associated with this email");
           break;
         default:
-          console.log(eroor);
+          console.log(error);
       }
     }
   };
@@ -52,8 +53,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   return (
