@@ -3,6 +3,8 @@ import "../styles/style.scss";
 import { Children } from "react";
 import Nav from "../components/nav/nav.component";
 import { UserProvider } from "../contexts/user.context";
+import { ProductsProvider } from "../contexts/products.context";
+import { CartProvider } from "../contexts/cart.context";
 
 export const metadata = {
   title: "CAPSTONE PROJECT",
@@ -22,13 +24,17 @@ const RootLayout = ({ children }) => {
       </head>
       <body suppressHydrationWarning={true}>
         <UserProvider>
-          <div className="main">
-            <div className="gradient" />
-          </div>
-          <main className="app">
-            <Nav />
-            {children}
-          </main>
+          <ProductsProvider>
+            <CartProvider>
+              <div className="main">
+                <div className="gradient" />
+              </div>
+              <main className="app">
+                <Nav />
+                {children}
+              </main>
+            </CartProvider>
+          </ProductsProvider>
         </UserProvider>
       </body>
     </html>
