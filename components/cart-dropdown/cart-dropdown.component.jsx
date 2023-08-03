@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 import Button from '../button/button.component'
 import CartItem from '../cart-item/cart-item.component'
+import Link from 'next/link'
 
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext)
@@ -19,7 +20,9 @@ const CartDropdown = () => {
           <span className='empty-message'>Your cart is empty</span>
         )}
         </div>
-        <Button>GO TO CHECKOUT</Button>
+        <Link href="/checkout" >
+          <Button>GO TO CHECKOUT</Button>
+        </Link>
     </div>
   )
 }
