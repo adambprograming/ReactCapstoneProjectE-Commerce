@@ -22,7 +22,6 @@ const Navigation = () => {
       <Link className="logo-container" href="/">
         <Image src={navLogo} alt="Logo" />
       </Link>
-
       <div className="nav-links-container">
         <Link className="nav-link" href="/shop">
           SHOP

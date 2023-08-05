@@ -3,7 +3,7 @@ import "../styles/style.scss";
 import { Children } from "react";
 import Nav from "../components/nav/nav.component";
 import { UserProvider } from "../contexts/user.context";
-import { ProductsProvider } from "../contexts/products.context";
+import { CategoriesProvider } from "../contexts/categories.context";
 import { CartProvider } from "../contexts/cart.context";
 
 export const metadata = {
@@ -24,7 +24,7 @@ const RootLayout = ({ children }) => {
       </head>
       <body suppressHydrationWarning={true}>
         <UserProvider>
-          <ProductsProvider>
+          <CategoriesProvider>
             <CartProvider>
               <div className="main">
                 <div className="gradient" />
@@ -34,7 +34,7 @@ const RootLayout = ({ children }) => {
                 {children}
               </main>
             </CartProvider>
-          </ProductsProvider>
+          </CategoriesProvider>
         </UserProvider>
       </body>
     </html>
